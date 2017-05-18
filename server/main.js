@@ -1,6 +1,6 @@
 // Everything here is only executed on the server
 import _ from 'lodash';
-import { Meteor } from 'meteor';
+import { Meteor } from 'meteor/meteor';
 import { Employees } from '../imports/collections/employees';
 import { image, helpers } from 'faker';
 
@@ -18,10 +18,9 @@ Meteor.startup(() => {
       const { name, email, phone } = helpers.createCard();
 
       // insert new record to Mongo collection
-      Employyees.insert({
-        name,
-        email,
-        phone
+      Employees.insert({
+        name, email, phone,
+        avatar: image.avatar()
       });
     });
   }
