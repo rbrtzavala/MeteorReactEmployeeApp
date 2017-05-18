@@ -28,7 +28,7 @@ Meteor.startup(() => {
   // Create a publication here...
   // Publication exist on server side and acts as a sort of
   // window to into the Mongo database.
-  Meteor.publish('employees', function() {
-    return Employees.find({}, { limit: 20 });
+  Meteor.publish('employees', function(per_page) {
+    return Employees.find({}, { limit: per_page });
   });
 });
