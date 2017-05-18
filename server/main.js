@@ -24,4 +24,11 @@ Meteor.startup(() => {
       });
     });
   }
+
+  // Create a publication here...
+  // Publication exist on server side and acts as a sort of
+  // window to into the Mongo database.
+  Meteor.publish('employees', function() {
+    return Emplyees.find({}, { limit: 20 });
+  });
 });
